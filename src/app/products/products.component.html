@@ -1,0 +1,27 @@
+<!-- <app-landing  [labelName]="'filterValue'" (outputValue)="getValue($event)" ></app-landing> -->
+
+
+<table class="table table-hover">
+    <thead>
+      <tr class="table table-secondary" >
+        <th>Item Code</th>
+        <th>Category</th>
+        <th>Name</th>
+        <th>Details</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- pipe  | filterNewPipe:filterValue -->
+        <tr *ngFor="let item of product ">
+            <ng-container *ngIf="item.category>category">
+            <th>{{item.code}}</th>
+            <th>{{item.category}}</th>
+            <th>{{item.name}}</th>
+            <th>{{item.details}}</th>
+            <th>{{item.price}}</th>
+        </ng-container>
+        </tr>
+
+    </tbody>
+    </table>

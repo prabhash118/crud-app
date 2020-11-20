@@ -1,0 +1,120 @@
+<!-- 
+
+<div class="sidenav">
+    <div class="login-main-text">
+       <h2>Application<br> Login Page</h2>
+       <p>Login or register from here to access.</p>
+    </div>
+ </div>
+ <div class="main">
+    <div class="col-md-6 col-sm-12">
+       <div class="login-form">
+          <form>
+             <div class="form-group">
+                <label>User Name</label>
+                <input type="text" class="form-control" placeholder="User Name">
+             </div>
+             <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" placeholder="Password">
+             </div>
+             <button type="submit" class="btn btn-light btn btn-outline-dark my-2 my-sm-0" >Login</button>
+             <button type="submit" class="btn btn-light btn btn-outline-dark my-2 my-sm-0">Register</button>
+          </form>
+       </div>
+    </div>
+ </div> -->
+
+
+ <div class="container">
+    <div class="row">
+        <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">
+            <div class="row">
+                <div class="col-lg-6 col-md-8 mx-auto">
+
+                    <div class="card rounded shadow shadow-sm">
+                        <div class="card-header">
+                            <h3 *ngIf="isLogin" class="mb-0">Login</h3>
+                            <h3 *ngIf="!isLogin" class="mb-0">Register</h3>
+                        </div>
+                        <div class="card-body">
+                            <form *ngIf="isLogin" [formGroup]="loginForm" class="form" role="form" autocomplete="off" id="formLogin"
+                                novalidate="" method="POST">
+                                <div class="form-group">
+                                    <label for="uname1">Username</label>
+                                    <input type="text" formControlName="email"
+                                        class="form-control form-control-lg rounded-0" name="uname1" id="uname1"
+                                        required="">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input formControlName="password" type="password"
+                                        class="form-control form-control-lg rounded-0" id="pwd1" required=""
+                                        autocomplete="new-password">
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+                                <div>
+                                    <label class="custom-control custom-checkbox">
+                                        <input type="checkbox" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description small text-dark">Remember me on this
+                                            computer</span>
+                                    </label>
+                                </div>
+                                <!-- <button (click)="gotoRegister()"
+                                class="btn btn-success btn-lg float-left" >Goto Register</button> -->
+
+
+                                <button (click)="loginUser()" [disabled]="!loginForm.valid"
+                                    class="btn btn-success btn-lg float-right" id="btnLogin">Login</button>
+                                    
+
+                                <!-- <button >Register</button> -->
+                            </form>
+
+
+
+                     <form *ngIf="!isLogin" [formGroup]="registerForm" class="form" role="form" autocomplete="off" id="formLogin"
+                                novalidate="" method="POST">
+                                <div class="form-group">
+                                    <label for="uname1">Username</label>
+                                    <input type="text" formControlName="email"
+                                        class="form-control form-control-lg rounded-0" name="uname1" id="uname1"
+                                        required="">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Password</label>
+                                    <input formControlName="password" type="password"
+                                        class="form-control form-control-lg rounded-0" id="pwd1" required=""
+                                        autocomplete="new-password">
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirm Password</label>
+                                    <input formControlName="confPassword" type="password"
+                                        class="form-control form-control-lg rounded-0" id="pwd1" required=""
+                                        autocomplete="new-password">
+                                </div>
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input formControlName="firstName" type="text"
+                                        class="form-control form-control-lg rounded-0" id="pwd1" required=""
+                                        autocomplete="new-password">
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input formControlName="lastName" type="text"
+                                        class="form-control form-control-lg rounded-0" id="pwd1" required=""
+                                        autocomplete="new-password">
+                                </div>
+                                <button (click)="gotoLogin()"
+                                class="btn btn-success btn-lg float-left" >Goto Login</button>
+
+                                <button (click)="registerUser()" [disabled]="!registerForm.valid"
+                                    class="btn btn-success btn-lg float-right" id="btnRegister">Register</button>
+
+                                <!-- <button >Register</button> -->
+                     </form>
+
